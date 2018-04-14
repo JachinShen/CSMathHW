@@ -10,4 +10,11 @@
 
 First we choose a vertex in $G$ to be corresponding to our first vertex, say vertex $1$. There is $2^n$ ways. Note that $n-1$ adjacent vertexes to it can uniquely form a hyperplane and they are all symmetrical. So we arrange them to the adjacent vertexes and there is only $n!$ ways since all the hyperplanes are unique.
 As a result, the number of automorphism is $2^nn!$.
+
+ \par We prove there are no automorphisms other than those by contradiction. We assume that there is more than $2^n\times n$ ways automorphisms. So for the first vertex, there is more than $n!$ ways for the next adjacent vertices to be put. So there must be a repeat for it. But as we state above, for each way to put the adjacent vertices, the next level of adjacent vertices are unique. So there is a contradiction. 
+ \par there is an example. For vertex$(1,1,1,1,1)$, the adjacent vertices are
+ \begin{center}
+ $(1,1,1,1,0),(1,1,1,0,1),(1,1,0,1,1),(1,0,1,1,1),(0,1,1,1,1)$,
+  \end{center}
+  with $5!$ ways to put them. We can know that the only vertice $(1,1,1,1,0),(1,1,1,0,1)$ are connected to is$(1,1,1,0,0)$, so if there is a repeat for the way the $n$ adjacent vertices to put, it must be the same, which is a contradiction.
 \end{proof}
