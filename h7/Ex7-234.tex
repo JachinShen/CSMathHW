@@ -2,8 +2,11 @@
 \begin{exercise}
   State a score theorem for multigraphs. That is, something like
   \begin{theorem}[Multigraph Score Theorem]
-     Let $(a_1,\dots,a_n) \in \N_0^n$. There is a multigraph
-     with this score if and only if \texttt{\textup{<fill in some simple criterion here>}}.
+     Let $A = (a_1,\dots,a_n) \in \N_0^n$, $a_1 \geq a_2 \geq \dots  \geq a_n$. There is a multigraph
+     with this score if and only if for $\prime A = (a_1 - 1, a_2 - 1, a_3, \dots, a_n)$, there is a multigraph.
+
+     Furthermore, if $n=1$, then exists a graph with score$(a_1)$ if and only if $a_1=0$.
+     If $n=2$, then exists a graph with score$(a_1, a_2)$ if and only if $a_1=a_2$ and $a_1, a_2$ are even.
   \end{theorem}
   
   
