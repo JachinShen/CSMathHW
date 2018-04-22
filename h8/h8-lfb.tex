@@ -1,0 +1,47 @@
+The next two exercises use a bit of probability theory. Suppose we want to sample a random
+tree on $[n]$. That is, we want to write a little procedure (say in Java) that uses randomness and outputs
+a tree $T$ on $[n]$, where each of the $n^{n-2}$ trees has the same probability of 
+appearing. 
+
+\begin{exercise}
+   Sketch how one could write such a procedure. Don't actually write program code, just
+   describe it informally. You can assume you have access to a random generator
+   \texttt{randomInt($n$)} that returns a function in $\{1,\dots,n\}$ as well
+   as \texttt{randomReal()} that returns a random real number from the interval $[0,1]$.
+\end{exercise}
+
+
+\textbf{Solution.}
+\par We may generate a random tree in the following way:
+\par 1. Given the number of vertices in the tree $n$, we use \texttt{randomInt($n$)} to generate $n-2$ random integers and get a Pr\"ufer code.
+\par 2. Generate a tree according to Pr\"ufer code. That is,
+\par a. Init $P$ as sorted Pr\"ufer code, $U$ as inetegers not appearing in the Pr\"ufer code, $R$ as vertices removed.
+\par b. Take the first element $p$ from $P$ and first element $u$ from $U$, add an edge ${u,p}$ to the tree. Remove $p$ from P and $u$ from $U$.
+\par c. Check if $p$ appear in $P$. If not, add $p$ to $U$.
+\par d. Repeat $a,b,c$ until there is no element of $P$. Take two elements from $U$ and add an edge between them.\\
+Obviously, every Pr\"ufer code has the same probability of appearing. So every possible tree has the same probability of appearing.\\
+
+
+Clearly, a tree $T$ on $[n]$ has at least $2$ and at most $n-1$ leaves. But how 
+many leaves does it have on average? For this, we could use your tree sampler from the previous
+exercise, run it 1000 times and compute the average. However, it would be much nicer to have 
+a closed formula.
+
+\begin{exercise}
+  Fix some vertex $u \in [n]$. If we choose a tree $T$ on $[n]$ uniformly at random,
+  what is the probability that $u$ is a leaf?
+   What is the expected number of leaves of $T$?
+\end{exercise}
+
+\textbf{Solution.}
+\par $P(\text{u is a leaf}) = (1-\frac{1}{n})^{n-2}$
+\par $E(\#leaf) = n(1-\frac{1}{n})^{n-2}$
+\begin{proof}
+$u$ is a leaf means $u$ does not appear in Pr\"ufer code. So for each element in the Pr\"ufer code, it has $n-1$ choices. The number of trees in which $u$ is leaf is $(n-1)^{n-2}$. So the probability that $u$ is a leaf is $(1-\frac{1}{n})^{n-2}$, expected number of leaves is $n(1-\frac{1}{n})^{n-2}$.
+\end{proof}
+
+\begin{exercise}
+  For a fixed vertex $u$, what is the probability that $u$ has degree $2$?
+\end{exercise}
+\textbf{Solution.}
+\par $P(degree(u)=2) = \frac{(n-2)(n-1)^{n-3}}{n^{n-2}}$
