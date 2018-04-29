@@ -17,7 +17,6 @@ d_i         &      & {i=1,\cdots,n-d_n-1}\\
 \end{center}
 \par Then there exists a graph with score $d$ if and only if there exist a graph with score $d'$
 \par Furthermore, if $n=1$, then there exist a graph with score $(d_1)$ if and only if $d_i=1$.
-\par
 \textbf{Idea of Algorithm}
 \par find-graph $(d_1,d_2,\cdots,d_n)$
 \par sort$(d_1,d_2,\cdots,d_n)$
@@ -37,3 +36,8 @@ d_i         &      & {i=1,\cdots,n-d_n-1}\\
 \includegraphics[width = 0.8 \textwidth]{score.png}
 \end{center}
 \end{figure}
+\textbf{Trying to explain it over lunch:}
+\par We sort the degree in a non-decreasing order. Every time we eliminate the vertex with the largest degree(suppose it is $x$). We subtract 1 from the other $x^{th}$ largest degree of the vertices. If we succeed in doing it until the end with no negative numbers. We succeed in finding the graph.
+
+
+
