@@ -9,11 +9,31 @@
    the definition of $k$-layerings still hold, so you only have to check  condition (3).
 \end{exercise}
 
+\textbf{Solution}
+
+For any edge $(u,v)$ in path $p$ in $G$, $u \in V_i$, $v \in V_j$, $j \leq i + 1$.
+
+Since the length of the path is $k$, $j = i + 1$
+
+In the residual graph $G_f$, $(u,v)$ split to $(u,v)$ and $(v,u)$.
+
+Obviously, $(u,v)$ still satisfies the condition (3).
+
+For $(v,u)$, $i = j-1 \leq j+1$, thus it satisfies the condition (3), too.
+
+Therefore, $V_0, V_1, \dots, V_k$ is a layering of $(G_f, s, t, c_f)$, too.
+
 
 \begin{exercise}
    Show that every network $(G,s,t,c)$ has an optimal layering, provided there is a path
    from $s$ to $t$.
 \end{exercise}
+
+\textbf{Solution}
+
+\textbf{Case 1}: When the provided path from $s$ to $t$ is the shortest-path with length $k$, according to \textbf{Exercies 10.5}, there is a $k$-layering. Thus, the network has an optimal layering.
+
+\textbf{Case 2}: When the provided path from $s$ to $t$ is not the shortest-path, then there is another shortest-path from $s$ to $t$ with length $k$. According to \textbf{Exercies 10.5}, there is a $k$-layering. Thus, the network has an optimal layering.
 
 
 \begin{exercise}
@@ -25,3 +45,6 @@
    the partition $V_0,\dots,V_k$ to be fixed in this exercise.
 \end{exercise}
 
+\textbf{Solution}
+
+After every iteration, an edge is completely reversed. There are total $m$ edges, so after at most $m$ iterations, one edge of the shortest path must be reversed. Then there may be no path from $s$ to $t$ or a longer path. So $V_0, V_1, \dots, V_n$ ceases to be an optimal layering.
