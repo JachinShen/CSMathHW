@@ -47,4 +47,5 @@ Therefore, $V_0, V_1, \dots, V_k$ is a layering of $(G_f, s, t, c_f)$, too.
 
 \textbf{Solution}
 
-After every iteration, an edge is completely reversed. There are total $m$ edges, so after at most $m$ iterations, one edge of the shortest path must be reversed. Then there may be no path from $s$ to $t$ or a longer path. So $V_0, V_1, \dots, V_n$ ceases to be an optimal layering.
+After every iteration, an edge is completely reversed. Note that the reversed edge cannot appear in the shortest path again becauce it "goes back" to lower layer.
+There are total $m$ edges, so after at most $m$ iterations, all edges are reversed and there is no path from $s$ to $t$. So $V_0, V_1, \dots, V_n$ ceases to be an optimal layering.
