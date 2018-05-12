@@ -1,0 +1,25 @@
+
+\begin{exercise}[From the video lecture]
+   Recall the definition of the value of a flow: ${\rm val}(f) = \sum_{v \in V} f(s,v)$.
+   Let $S \subseteq V$ be a set of vertices that contains $s$ but not $t$. Show that
+   \begin{align*}
+         {\rm val}(f) = \sum_{u \in S, v \in V \setminus S} f(u,v) \ .
+   \end{align*}
+   That is, the total amount of flow leaving $s$ equals the total amount of flow 
+   going from $S$ to $V \setminus S$.
+   \textbf{Remark.} It sounds obvious. However, find a formal proof that works with the 
+   axiomatic definition of flows. 
+\end{exercise}
+
+
+\begin{exercise}
+Let $G = (V,E,c)$ be a flow network.
+  Prove that flow is ``transitive'' in the following sense: 
+  If there is a flow from $s$ to $r$ of value $k$,
+  and a flow from $r$ to $t$ of value $k$, then
+  there is a flow from $s$ to $t$ of value $k$.
+  \textbf{Hint.} The solution is extremely short. If you are trying
+  something that needs more than 3 lines to write, you are on the wrong
+  track.
+\end{exercise}
+

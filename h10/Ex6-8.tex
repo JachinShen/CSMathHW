@@ -1,0 +1,27 @@
+
+\begin{exercise}
+   Let $(G,s,t,c)$ be a flow network and $V_0, V_1, \dots, V_k$ be an optimal layering
+   (that is, $k = {\rm dist}_G(s,t)$.
+   Let $p$ be a path from $s$ to $t$ of length $k$. 
+   Suppose we route some flow $f$ along $p$ (of some
+   value $c_{\rm min} > 0$) and let $(G_f,s,t,c_f)$ be the residual network. Show that
+   $V_0, V_1,\dots, V_k$ is a layering of $(G_f,s,t,c_f)$, too. Obviously, condition (1) and (2) in
+   the definition of $k$-layerings still hold, so you only have to check  condition (3).
+\end{exercise}
+
+
+\begin{exercise}
+   Show that every network $(G,s,t,c)$ has an optimal layering, provided there is a path
+   from $s$ to $t$.
+\end{exercise}
+
+
+\begin{exercise}
+   Imagine we are in some iteration of the while-loop of the Ford-Fulkerson method.
+   Let $V_0, \dots, V_k$ be an optimal layering of $(G,s,t,c)$. Show that after at most $m$
+   iterations of the while-loop, $V_0,\dots,V_k$ ceases
+   to be an optimal layering. \textbf{Remark.} Note that it is the {\em network} that changes from
+   iteration to iteration of the while-loop, not the partition $V_0,\dots,V_k$. We consider
+   the partition $V_0,\dots,V_k$ to be fixed in this exercise.
+\end{exercise}
+

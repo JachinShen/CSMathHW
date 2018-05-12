@@ -1,0 +1,5 @@
+graph{
+    1 -- 2 [label="2"]
+    2 -- 3 [label="1"];
+    {rank=same;2,3}
+}

@@ -38,17 +38,34 @@ and $w: E \rightarrow \R^+$ be a weight function.\\
 \end{exercise}
 
 \textbf{Solution.}
-\par 
-$V=\{v_1,v_2\},E=\{(v_1,v_2)\}$, $T=\{(v_1,v_2)\}$. Obviously they are the same.
+%\par 
+%$V=\{v_1,v_2\},E=\{(v_1,v_2)\}$, $T=\{(v_1,v_2)\}$. Obviously they are the same.
+For example, $G$ is:
 
+\includegraphics[width= .4\textwidth]{8-4-1.pdf}
+
+Then, $T$ is:
+
+\includegraphics[width= .4\textwidth]{8-4-2.pdf}
+
+$G_{1.5}$ is:
+
+\includegraphics[width= .4\textwidth]{8-4-3.pdf}
+
+$T_{1.5}$ is:
     
+\includegraphics[width= .4\textwidth]{8-4-3.pdf}
+
+$G_{1.5}$ and $T_{1.5}$ have the same connected components.
 
 \begin{exercise}
      Prove the lemma.
 \end{exercise}
 
 \begin{proof}
+
     In \emph{Kruskal Algorithm}, $\forall c \in \R, \forall e_i$ that $w(e)\leq c$, at the step considering it, if we can put $e_k$ in $T$, then we can put it in $T_c$, which will result in $T_c$'s connected component reduced by one, and since it does not cause a cycle in $T_c$, it does not cause a cycle in $G_c$, which will reduce $G_c$'s connected components by one. If we cannot add it into $T$, obviously this edge does not affect $T_c$, and since it causes a cycle in $T$, it will not reduce the connected components when added to $G_c$. In conclusion, each edge has the same influence on $T_c$ and $G_c$ at the step selecting them.
+
 \end{proof}
 
 \begin{definition}
@@ -67,16 +84,43 @@ Illustrate Lemma~\ref{lemma-weight-multiplicity} with an example!
 \end{exercise}
 
 \textbf{Solution.}
-\par
-    $V=\{v_1,v_2\},E=\{(v_1,v_2)\}$, $T=\{(v_1,v_2)\}$. Obviously they are the same.
+%\par
+    %$V=\{v_1,v_2\},E=\{(v_1,v_2)\}$, $T=\{(v_1,v_2)\}$. Obviously they are the same.
+For example, $G$ is:
 
+\includegraphics[width= .4\textwidth]{8-8-1.pdf}
+
+$T$ is:
+
+\includegraphics[width= .4\textwidth]{8-8-2.pdf}
+
+$T^{\prime}$ is:
+
+\includegraphics[width= .4\textwidth]{8-8-3.pdf}
+
+$T_{1.5}$ is:
+
+\includegraphics[width= .4\textwidth]{8-8-4.pdf}
+
+$T_{1.5}^{\prime}$ is:
+
+\includegraphics[width= .4\textwidth]{8-8-4.pdf}
+
+$T_{1.5}$ and $T_{1.5}^{\prime}$ all have 1 edge.
 
 \begin{exercise}
 Prove the lemma.
 \end{exercise}
 \begin{proof}
 $$
-    m_c(T)=m_{+\infty}(T_c)=|E|-\text{connected component}(T_c)=|E|-\text{connected component}(G_c)=|E|-\text{connected component}(T'_c)=m_{+\infty}(T'_c)=m_c(T')
+    \begin{aligned}
+    m_c(T) & = m_{+\infty}(T_c)\\
+    & = |E|-\text{connected component}(T_c)\\
+    & = |E|-\text{connected component}(G_c)\\
+    & = |E|-\text{connected component}(T'_c)\\
+    & = m_{+\infty}(T'_c)\\
+    & = m_c(T')\\
+    \end{aligned}
 $$
 \end{proof}
 
@@ -86,10 +130,7 @@ $$
 \end{exercise}
 
 \begin{proof}
-    Obviously it is true considering \emph{Kruskal Algorithm} since every step they make the same decision.
+    Suppose there are two minimum spanning tree $T$ and $T^{\prime}$. Consider in \emph{Kruskal Alogorithm}, the first step where they add an edge to themselves is that $T$ chooses $e_i$ while $T^{\prime}$ chooses $e_j$. However, since they are precisely the same after the last step, $e_i$ and $e_j$ must have the same weight so that they are taken into consideration at the same time, which contradicts with the conditions.
 \end{proof}
-
-
-
 
 

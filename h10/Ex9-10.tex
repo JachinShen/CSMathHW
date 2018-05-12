@@ -1,0 +1,18 @@
+
+\begin{exercise}
+Show that the Edmonds-Karp algorithm terminates after $n \cdot m$ iterations of the 
+while-loop. \textbf{Hint.} Initially, compute an optimal $k$-layering (which?). Then keep
+this layering as long as its optimal. Once it ceases to be optimal, compute a new optimal
+layering. Note that the Edmonds-Karp algorithm does not actually need to compute any
+layering. It's us who compute it to show that $n \cdot m$ bound on the number of iterations.
+\end{exercise}
+
+\begin{exercise}
+   Show that every network has a maximum flow $f$. 
+   That is, a flow $f$ such that ${\rm val}(f) \geq {\rm val}(f')$ for every flow $f'$.
+   \textbf{Remark.} This sounds obvious but it is not. In fact, there might be an infinite
+   sequence of flows $f_1, f_2, f_3, \dots$ of increasing value that does not reach any maximum.
+    Use the previous exercises!
+\end{exercise}
+
+

@@ -34,23 +34,18 @@ How many have a core of size $2$ that consists of two $1$-cycles? By this we mea
 that $\core(f) = \{x,y\}$ with $f(x) = x$ and $f(y) = y$.
 \end{exercise}
 \textbf{Solution.}
-\par This question is a little difficult because there is $n-2$ edges left regardless of the cycle. So let's divide the n vertices into $2$ parts(at least one vertex in a part) so there are $2^{n-1}-1$ ways to divide (because there is a symmetry). For each division, there are
-\begin{equation*}
-\tbinom{n}{2}
-\end{equation*}
-ways to choose the 2 left cycles. So the total number of functions is
-\begin{equation*}
-\tbinom{n}{2}\times (2^{n-1}-1)
-\end{equation*}
 
+For a function $f$, when $\core(f) = \{x,y\}$ with $f(x) = x$ and $f(y) = y$, we can convert it to a vertebrate $(T,x,y)$:
+
+\includegraphics[width = .8\textwidth]{ver.pdf}
+
+$x,y$ are $head$ and $butt$ and there exists one and only one edge between $x$ and $y$. So every function $f$ that $\core(f) = \{x,y\}$ with $f(x) = x$ and $f(y) = y$ is a vertebrate with $head$ and $butt$ connected, and correspondingly, a tree with an edge selected.
+
+For $n$ vertices, there are $n^{n-2}$ trees and every tree has $n-1$ edges. Thus, there are $n^{n-2}\times (n-1)$ trees with an edge selected. So, $(n-1) \times n^{n-2}$ functions have a core of size $2$ that consists of two $1$-cycles.
 
 \textbf{Hint.} For the previous two exercises, you need to use the link between functions
  $f: [n]\rightarrow [n]$ and
 vertebrates $(T,h,b)$ from the video lecture.
-
-
-
-
 
 \subsection{Counting Trees with Pr\"ufer Codes}
 

@@ -1,0 +1,90 @@
+\documentclass[12pt,a4]{article}
+\input{preamble}
+
+
+
+
+\setcounter{section}{9}
+
+\section{Network Flow}
+
+
+
+\begin{itemize}
+ \item Homework assignment published on Monday 2018-05-07
+ \item Submit questions and first solution by Sunday, 2018-05-13, 12:00
+ \item Submit final solution by Sunday, 2018-05-20.
+\end{itemize}
+
+
+\input{Ex1-2}
+
+
+\subsection{An Algorithm for Maximum Flow}
+
+Recall the algorithm for Maximum Flow presented in the video. It is usually called
+the Ford-Fulkerson method.
+
+\begin{algorithm}[h]
+\caption{Ford-Fulkerson Method}\label{algorithm-encoding}
+\begin{algorithmic}[1]
+\Procedure{FF}{$G=(V, E), s, t, c$} 
+  \State Initialize $f$ to be the all-$0$-flow.
+   \While{there is a path $p$ form $s$ to $t$ in the residual network $G_{f}$}
+    \State $c_{\rm min} := \min \{ c_f(e) \ | \ e \in p \}$ 
+    \State let $f_p$ be the flow in $G_f$ that routes $c_{\rm min}$ flow along $p$
+    \State $f:= f + f_p$
+   \EndWhile
+   \State \texttt{//} now $f$ is a maximum flow
+  \State $S := \{v \in V \ | \ G_f \textnormal{ contains a path from } s \textnormal{ to } v \}$
+  \State \texttt{//} $S$ is a minimum cut
+  \State \Return $(f,S)$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+We proved in the lecture that $f$ is a maximum flow and $S$ is a minimum cut,
+by showing that upon termination of the while-loop, ${\rm val}(f) = {\rm cap}(S)$.
+The problem is that the while-loop might not terminate. In fact, there is an example
+with capacities in $\mathbb{R}$ for which the while loop does not terminate, and the 
+value of $f$ does not even converge to the value of a maximum flow. As indicated
+in the video, a little twist fixes this:
+\begin{quotation}
+  \textbf{Edmonds-Karp Algorithm:} Execute the above 
+  Ford-Fulkerson Method, but in every iteration choose $p$ to be a 
+  shortest $s$-$t$-path in $G_f$. Here, ``shortest'' means minimum number of edges.
+\end{quotation}
+In a series of exercises, you will now show that this algorithm always terminates
+after at most $n \cdot m$ iterations of the while loop (here $n = |V|$ and $m = |E|$).
+
+\begin{definition}
+   Let $(G,s,t,c)$ be a flow network and $k \in \mathbb{N}_0$.
+   A {\em $k$-layering} is a partition of $V = V_0 \cup \dots \cup V_k$ such that
+   (1) $s \in V_0$, (2) $t \in V_k$, (3)
+   for every edge $(u,v) \in E$ the following holds: suppose $u \in V_i$ and $v \in V_j$.
+   Then $j \leq i+1$. 
+   In words, point (3) states that every edge moves at most one level forward.
+\end{definition}
+
+The figure below illustrates this concept: for one network we show two possible layerings
+and something that looks like a layering but is not:
+\begin{center}
+\includegraphics[width=\textwidth]{figures/layering.pdf}
+\end{center}
+
+\input{Ex4-5}
+
+Let $(G,s,t,c)$ be a flow network and $V_0,\dots,V_k$ a $k$-layering. We call this 
+layering {\em optimal} if ${\rm dist}_G(s,t) = k$. Here, ${\rm dist}_G(u,v)$ 
+is the shortest-path distance from $s$ to $t$ (measured by number of edges).
+If there is no path from $s$ to $t$, we set ${\rm dist}_G(s,t) = \infty$. In this case, 
+no layering is optimal.
+For example, the $3$-layering
+in the above figure is optimal, but the $1$-layering in the middle of the above figure
+is not.
+Let us explore how layerings and the Ford-Fulkerson Method interact.
+
+\input{Ex6-8}
+
+\input{Ex9-10}
+\end{document}

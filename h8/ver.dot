@@ -1,0 +1,13 @@
+graph {
+    4 -- 2
+    5 -- 2
+    1 -- x
+    2 -- x
+    3 -- x
+    9 -- 6
+    6 -- y
+    7 -- y
+    8 -- y
+    x -- y [label = "selected"]
+    {rank=same;x,y}
+}
