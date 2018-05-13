@@ -11,6 +11,25 @@
    axiomatic definition of flows. 
 \end{exercise}
 
+   \par \textbf{Proof.}
+   \par First, we use $e$ to denote an edge, and it is obvious that for each $v\in V-{s,t}$:
+   \begin{align*}
+         \sum_{e\,into\,v} f(e)= \sum_{e\,out\,of\,v}f(e)\
+   \end{align*}
+   \par We call it flow conservation, and with the help of it we can know that:
+   \begin{align*}
+         {\rm val}(f)
+         =\sum_{e\,out\,of\,s} f(e)
+         =\sum_{v\in S}(\sum_{e\,out\,of\,u}f(e)-\sum_{e\,into\,v}f(e))
+         =\sum_{e\,out\,of\,A}f(e)-\sum_{e\,into\,A}f(e)
+          \
+   \end{align*}
+   \par As for the flow, if it is from $S$ to $V-S$, it is a positive one, otherwise it is a negative one. Namely, the formula above it is
+   \begin{align*}
+         \sum_{u \in S, v \in V \setminus S} f(u,v) \
+   \end{align*}
+
+
 
 \begin{exercise}
 Let $G = (V,E,c)$ be a flow network.
@@ -22,4 +41,7 @@ Let $G = (V,E,c)$ be a flow network.
   something that needs more than 3 lines to write, you are on the wrong
   track.
 \end{exercise}
+
+  \par\textbf{Proof.}
+  \par We use the water to embody the flow. If the water from $s$ to $r$ of value $k$ is exactly that $r$ to $t$, then obviously the statement holds. If there is some not flowing to $t$ but to some other vertex, from the flow conservation we can know there must be some water flow into $r$ with the same quantity, so there is also a flow from $s$ to $t$.
 

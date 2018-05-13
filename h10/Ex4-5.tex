@@ -4,7 +4,15 @@
    That is, every $s$-$t$-path in $G$ has at most $k$ edges.
 \end{exercise}
 
+\begin{proof}
+Suppose $s$-$t$-path in $G$ has m edges ($m < k$), whose vertices are $(v_0,v_1,v_2,\ldots,v_m)$. Suppose $v_i$ belongs to the layer $l(i)$, that is $v_i \in V_{l(i)}$. Obviously, l(0)=0 and l(m)=k. Since $(v_i,v_{i+1}) \in E$, $l(i+1) \le l(i)+1$. So $l(m) \le l(m-1) +1 \le l(m-2) +2 \le \ldots \le l(0) + m =m <k $, which contradicts $l(m)=k$. Therefore, every $s$-$t$-path in $G$ has at least $k$ edges.
+\end{proof}
+
 \begin{exercise}
    Conversely, suppose ${\rm dist}(s,t) = k$. Show that $(G,s,t,c)$ has a $k$-layering.
 \end{exercise}
 
+
+\begin{proof}
+Perform a breadth-first search on this graph until t is traversed. Since the path to each point obtained by breadth-first traversal is the shortest path, breadth-first tree has k+1 levels. Put the vertices in the same level in the tree to a layering successively, and vertices that have not yet been traversed are put into the last layering, too. According to the properties of breadth-first search,  condition (1)(2)(3) is easy to meet. So we get a $k$-layering.
+\end{proof}
